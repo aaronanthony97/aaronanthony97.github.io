@@ -122,7 +122,7 @@
     <!-- bloque del mapa -->
     <div id="map" class="sidebar-map"></div>
 
-
+    <!-- cargar javascript (objeto GeoJSON transformado) -->
     <script>      
         var map = L.map('map');
         map.setView([39.58, 2.65], 8);
@@ -132,15 +132,13 @@
             maxZoom: 18,
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
         }).addTo(map);
-        
-
+    
+     
         var marker = L.marker([39.58, 2.65]).addTo(map);
 
+        
         var sidebar = L.control.sidebar('sidebar').addTo(map);
-
         L.control.scale().addTo(map);
-
-
     </script>
 </body>
 </html>
