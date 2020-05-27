@@ -120,9 +120,9 @@
     </div>
 
     <!-- bloque del mapa -->
-    <div id="map" class="sidebar-map"></div>
-
     <!-- cargar javascript (objeto GeoJSON transformado) -->
+    <script src="contorno_84.geojson"></script>
+    <div id="map" class="sidebar-map"></div>
     <script>      
         var map = L.map('map');
         map.setView([39.58, 2.65], 8);
@@ -133,6 +133,14 @@
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
         }).addTo(map);
     
+        var contorno = L.geoJSON( // crear objeto línea de costa como capa geojson
+            contorno, {             // código a cargar: `línea de costa`
+            color: 'turquoise',             // estilo color
+            fillColor: 'blue',        //        color de relleno
+            fillOpacity: 0.2,         //        opacidad de relleno
+            });
+
+          contorno.addTo(map)   //
      
         var marker = L.marker([39.58, 2.65]).addTo(map);
 
