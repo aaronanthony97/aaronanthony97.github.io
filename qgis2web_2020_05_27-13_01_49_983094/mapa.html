@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/leaflet-search.css">
+        <style>
+        #map {
+            width: 890px;
+            height: 787px;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet-search.js"></script>
+        <script src="data/mallorca_0.js"></script>
+        <script src="data/Vegetacio_1.js"></script>
+        <script src="data/Nuclis_Urbans_2.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[39.30957857045383,2.3507012593096612],[39.88251992999513,3.189292076016852]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        function pop_mallorca_0(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ID_0'] !== null ? autolinker.link(feature.properties['ID_0'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ISO'] !== null ? autolinker.link(feature.properties['ISO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NAME_0'] !== null ? autolinker.link(feature.properties['NAME_0'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ID_1'] !== null ? autolinker.link(feature.properties['ID_1'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NAME_1'] !== null ? autolinker.link(feature.properties['NAME_1'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ID_2'] !== null ? autolinker.link(feature.properties['ID_2'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NAME_2'] !== null ? autolinker.link(feature.properties['NAME_2'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ID_3'] !== null ? autolinker.link(feature.properties['ID_3'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NAME_3'] !== null ? autolinker.link(feature.properties['NAME_3'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['VARNAME_3'] !== null ? autolinker.link(feature.properties['VARNAME_3'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NL_NAME_3'] !== null ? autolinker.link(feature.properties['NL_NAME_3'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['HASC_3'] !== null ? autolinker.link(feature.properties['HASC_3'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['TYPE_3'] !== null ? autolinker.link(feature.properties['TYPE_3'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ENGTYPE_3'] !== null ? autolinker.link(feature.properties['ENGTYPE_3'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['VALIDFR_3'] !== null ? autolinker.link(feature.properties['VALIDFR_3'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['VALIDTO_3'] !== null ? autolinker.link(feature.properties['VALIDTO_3'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['REMARKS_3'] !== null ? autolinker.link(feature.properties['REMARKS_3'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Shape_Leng'] !== null ? autolinker.link(feature.properties['Shape_Leng'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Shape_Area'] !== null ? autolinker.link(feature.properties['Shape_Area'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_mallorca_0_0() {
+            return {
+                pane: 'pane_mallorca_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(176,176,176,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_mallorca_0');
+        map.getPane('pane_mallorca_0').style.zIndex = 400;
+        map.getPane('pane_mallorca_0').style['mix-blend-mode'] = 'normal';
+        var layer_mallorca_0 = new L.geoJson(json_mallorca_0, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_mallorca_0',
+            layerName: 'layer_mallorca_0',
+            pane: 'pane_mallorca_0',
+            onEachFeature: pop_mallorca_0,
+            style: style_mallorca_0_0,
+        });
+        bounds_group.addLayer(layer_mallorca_0);
+        map.addLayer(layer_mallorca_0);
+        function pop_Vegetacio_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['VEGETACIO'] !== null ? autolinker.link(feature.properties['VEGETACIO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Vegetacio_1_0(feature) {
+            switch(String(feature.properties['VEGETACIO'])) {
+                case 'Alzinar':
+                    return {
+                pane: 'pane_Vegetacio_1',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,72,1,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Carritxeres':
+                    return {
+                pane: 'pane_Vegetacio_1',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(183,208,42,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Garriga':
+                    return {
+                pane: 'pane_Vegetacio_1',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(51,160,44,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Pinars':
+                    return {
+                pane: 'pane_Vegetacio_1',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,164,2,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Ullastrar':
+                    return {
+                pane: 'pane_Vegetacio_1',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(130,78,0,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Zones Humides':
+                    return {
+                pane: 'pane_Vegetacio_1',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,178,145,1.0)',
+                interactive: true,
+            }
+                    break;
+                default:
+                    return {
+                pane: 'pane_Vegetacio_1',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(189,189,189,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_Vegetacio_1');
+        map.getPane('pane_Vegetacio_1').style.zIndex = 401;
+        map.getPane('pane_Vegetacio_1').style['mix-blend-mode'] = 'normal';
+        var layer_Vegetacio_1 = new L.geoJson(json_Vegetacio_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Vegetacio_1',
+            layerName: 'layer_Vegetacio_1',
+            pane: 'pane_Vegetacio_1',
+            onEachFeature: pop_Vegetacio_1,
+            style: style_Vegetacio_1_0,
+        });
+        bounds_group.addLayer(layer_Vegetacio_1);
+        map.addLayer(layer_Vegetacio_1);
+        function pop_Nuclis_Urbans_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['AREA'] !== null ? autolinker.link(feature.properties['AREA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PERIMETER'] !== null ? autolinker.link(feature.properties['PERIMETER'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['HECTARES'] !== null ? autolinker.link(feature.properties['HECTARES'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COD_INE'] !== null ? autolinker.link(feature.properties['COD_INE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NOM'] !== null ? autolinker.link(feature.properties['NOM'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Nuclis_Urbans_2_0() {
+            return {
+                pane: 'pane_Nuclis_Urbans_2',
+                opacity: 1,
+                color: 'rgba(82,82,82,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(83,83,83,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Nuclis_Urbans_2');
+        map.getPane('pane_Nuclis_Urbans_2').style.zIndex = 402;
+        map.getPane('pane_Nuclis_Urbans_2').style['mix-blend-mode'] = 'normal';
+        var layer_Nuclis_Urbans_2 = new L.geoJson(json_Nuclis_Urbans_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Nuclis_Urbans_2',
+            layerName: 'layer_Nuclis_Urbans_2',
+            pane: 'pane_Nuclis_Urbans_2',
+            onEachFeature: pop_Nuclis_Urbans_2,
+            style: style_Nuclis_Urbans_2_0,
+        });
+        bounds_group.addLayer(layer_Nuclis_Urbans_2);
+        map.addLayer(layer_Nuclis_Urbans_2);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/Nuclis_Urbans_2.png" /> Nuclis_Urbans': layer_Nuclis_Urbans_2,'Vegetacio<br /><table><tr><td style="text-align: center;"><img src="legend/Vegetacio_1_Alzinar0.png" /></td><td>Alzinar</td></tr><tr><td style="text-align: center;"><img src="legend/Vegetacio_1_Carritxeres1.png" /></td><td>Carritxeres</td></tr><tr><td style="text-align: center;"><img src="legend/Vegetacio_1_Garriga2.png" /></td><td>Garriga</td></tr><tr><td style="text-align: center;"><img src="legend/Vegetacio_1_Pinars3.png" /></td><td>Pinars</td></tr><tr><td style="text-align: center;"><img src="legend/Vegetacio_1_Ullastrar4.png" /></td><td>Ullastrar</td></tr><tr><td style="text-align: center;"><img src="legend/Vegetacio_1_ZonesHumides5.png" /></td><td>Zones Humides</td></tr><tr><td style="text-align: center;"><img src="legend/Vegetacio_1_6.png" /></td><td></td></tr></table>': layer_Vegetacio_1,'<img src="legend/mallorca_0.png" /> mallorca': layer_mallorca_0,}).addTo(map);
+        setBounds();
+        map.addControl(new L.Control.Search({
+            layer: layer_Vegetacio_1,
+            initial: false,
+            hideMarkerOnCollapse: true,
+            propertyName: 'VEGETACIO'}));
+        document.getElementsByClassName('search-button')[0].className +=
+         ' fa fa-binoculars';
+        </script>
+    </body>
+</html>
