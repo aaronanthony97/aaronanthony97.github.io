@@ -1,12 +1,8 @@
+<!-- Leaflet básico de Aaron Ortega
+Visor sencillo para la localización de la empresa -->
+
 <!DOCTYPE html>
 <html lang="es">
-
-<!--    
-    CÓDIGO EJEMPLO para sidebar-v2 
-    Fuente: https://github.com/Turbo87/sidebar-v2
-    Iconos: https://fontawesome.com/v4.7.0/icons/
--->
-
 <head>
 
     <title>Mapa de localización de POST-AQUA</title>
@@ -34,7 +30,7 @@
     <!-- JS de sidebar-v2 -->
     <script src="https://turbo87.github.io/sidebar-v2//js/leaflet-sidebar.js"></script>
 
-
+    <!-- Estilo de los componentes del mapa -->
     <style>
         body {
             padding: 0;
@@ -73,7 +69,7 @@
                 <li><a href="https://www.google.es/maps/place/Avinguda+Gaspar+de+Bennazar,+53,+07004+Palma,+Illes+Balears/@39.5834513,2.6540833,17z/data=!3m1!4b1!4m5!3m4!1s0x129792fe578d0e7d:0xb46c3663cacd36a6!8m2!3d39.5834513!4d2.656272" role="tab"><i class="fa fa-globe"></i></a></li>
             </ul>
             
-            <!-- botón o botones de abajo -->
+            <!-- botón de ajustes de abajo -->
             <ul role="tablist">
                 <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
             </ul>
@@ -123,7 +119,7 @@
     </div>
 
     <!-- bloque del mapa -->
-    <!-- cargar javascript (objeto GeoJSON transformado) -->
+    <!-- Inserción del archivo geojson de los municipios -->
     <script src="contorno_84.geojson"></script>
     <div id="map" class="sidebar-map"></div>
     <script>      
@@ -136,17 +132,18 @@
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
         }).addTo(map);
     
-        var contorno = L.geoJSON( // crear objeto línea de costa como capa geojson
-            contorno, {             // código a cargar: `línea de costa`
-            color: 'darkcyan',             // estilo color
-            fillColor: 'deepskyblue',        //        color de relleno
-            fillOpacity: 0.2,         //        opacidad de relleno
+        var contorno = L.geoJSON( // crear objeto contorno como capa geojson
+            contorno, {             // código a cargar: `contorno`
+            color: 'darkcyan',             // color
+            fillColor: 'deepskyblue',        //        color del relleno
+            fillOpacity: 0.2,         //        transparencia del relleno
             weight: 1                 //        grosor de la línea
             });
 
           contorno.addTo(map)   //
      
-        var marker = L.marker([39.58, 2.65]).addTo(map);
+        // Localización de la empresa en la ciudad de Palma
+        var marker = L.marker([39.58, 2.65]).addTo(map); 
 
         var sidebar = L.control.sidebar('sidebar').addTo(map);
         L.control.scale().addTo(map);
