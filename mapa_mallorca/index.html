@@ -119,19 +119,21 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Inventarioforestal_1_0(feature) {
-            switch(String(feature.properties['VEGETACIO'])) {
-                case 'Alzinar':
+        function style_Inventarioforestal_1_0(feature) { //Definición de cada uno de los atributos con sus respectivas propiedades
+            switch(String(feature.properties['VEGETACIO'])) { //Propiedades de la variable de vegetación
+            //NOTA: Los datos originarios fueron creados en catalán, de eso a que los nombres de la vegetación sean en catalán
+            //Aunque cabe destacar que cada una de las etiquetas ha sido traducida, para que a la hora de interactuar con el mapa sean en castellano.
+                case 'Alzinar': //Encinares
                     return {
                 pane: 'pane_Inventarioforestal_1',
-                stroke: false, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(0,72,1,1.0)',
-                interactive: true,
+                stroke: false, //Contorno: en este caso se han eliminado los contornos de la vegetación, para mejorar la visualización. 
+                fill: true,//Relleno
+                fillOpacity: 1,//Opacidad
+                fillColor: 'rgba(0,72,1,1.0)',//Color
+                interactive: true,//interacción
             }
                     break;
-                case 'Carritxeres':
+                case 'Carritxeres': //Carrizal
                     return {
                 pane: 'pane_Inventarioforestal_1',
                 stroke: false, 
@@ -141,7 +143,7 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
                 interactive: true,
             }
                     break;
-                case 'Garriga':
+                case 'Garriga': //Garriga
                     return {
                 pane: 'pane_Inventarioforestal_1',
                 stroke: false, 
@@ -151,7 +153,7 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
                 interactive: true,
             }
                     break;
-                case 'Pinars':
+                case 'Pinars': //Pinares
                     return {
                 pane: 'pane_Inventarioforestal_1',
                 stroke: false, 
@@ -161,7 +163,7 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
                 interactive: true,
             }
                     break;
-                case 'Ullastrar':
+                case 'Ullastrar'://Acebuche
                     return {
                 pane: 'pane_Inventarioforestal_1',
                 stroke: false, 
@@ -171,7 +173,7 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
                 interactive: true,
             }
                     break;
-                case 'Zones Humides':
+                case 'Zones Humides'://Zonas húmedas
                     return {
                 pane: 'pane_Inventarioforestal_1',
                 stroke: false, 
@@ -192,7 +194,7 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
             }
                     break;
             }
-        }
+        }//Propiedades de la capa en el mapa
         map.createPane('pane_Inventarioforestal_1');
         map.getPane('pane_Inventarioforestal_1').style.zIndex = 401;
         map.getPane('pane_Inventarioforestal_1').style['mix-blend-mode'] = 'normal';
@@ -206,7 +208,7 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
             style: style_Inventarioforestal_1_0,
         });
         bounds_group.addLayer(layer_Inventarioforestal_1);
-        map.addLayer(layer_Inventarioforestal_1);
+        map.addLayer(layer_Inventarioforestal_1);//Añadir la capa de Inventario forestal al mapa
         function pop_Ncleosurbanos_2(feature, layer) {
             layer.on({
                 mouseout: function(e) {
