@@ -225,10 +225,11 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
                 },
                 mouseover: highlightFeature,//Resaltar al seleccionar
             //Atributos disponibles a la hora de visualizar el popup de cada entidad (se han eliminado los que no presentan interés)
+            //Se le ha añadido negrita al atributo al atributo de nombre
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['NOM'] !== null ? autolinker.link(feature.properties['NOM'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><b>Núcleo de población: </b>' + (feature.properties['NOM'] !== null ? autolinker.link(feature.properties['NOM'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -279,10 +280,11 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
                 },
                 mouseover: highlightFeature,//Resaltar al seleccionar
             //Atributos disponibles a la hora de visualizar el popup de cada entidad (se han eliminado los que no presentan interés)
+            //Se ha añadido negrita al atributo del nombre
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['MUNICIPI'] !== null ? autolinker.link(feature.properties['MUNICIPI'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><b>Municipio: </b>' + (feature.properties['MUNICIPI'] !== null ? autolinker.link(feature.properties['MUNICIPI'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -331,13 +333,14 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
                 },
                 mouseover: highlightFeature,//Resaltar al seleccionar
             //Atributos disponibles a la hora de visualizar el popup de cada entidad (se han eliminado los que no presentan interés)
+            //También se han puesto en negrita los nombres de los municipios
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['NOM_MUNICI'] !== null ? autolinker.link(feature.properties['NOM_MUNICI'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><b>Municipio: </b>' + (feature.properties['NOM_MUNICI'] !== null ? autolinker.link(feature.properties['NOM_MUNICI'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['pop_19'] !== null ? autolinker.link(feature.properties['pop_19'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><b>Población total: </b>' + (feature.properties['pop_19'] !== null ? autolinker.link(feature.properties['pop_19'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
