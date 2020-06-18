@@ -9,10 +9,10 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
         <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
-        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
-        <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
-        <link rel="stylesheet" href="css/leaflet-measure.css">
+        <link rel="stylesheet" href="mapa_mallorca/css/leaflet.css"><link rel="stylesheet" href="mapa_mallorca/css/L.Control.Locate.min.css">
+        <link rel="stylesheet" href="mapa_mallorca/css/qgis2web.css"><link rel="stylesheet" href="mapa_mallorca/css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="mapa_mallorca/css/leaflet-control-geocoder.Geocoder.css">
+        <link rel="stylesheet" href="mapa_mallorca/css/leaflet-measure.css">
         <style>
         #map {
             width: 1220px; 
@@ -24,22 +24,22 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
     <body> <!-- Llamar a cada uno de los js utilizados -->
         <div id="map">
         </div>
-        <script src="js/qgis2web_expressions.js"></script>
-        <script src="js/leaflet.js"></script><script src="js/L.Control.Locate.min.js"></script>
-        <script src="js/leaflet.rotatedMarker.js"></script>
-        <script src="js/leaflet.pattern.js"></script>
-        <script src="js/leaflet-hash.js"></script>
-        <script src="js/Autolinker.min.js"></script>
-        <script src="js/rbush.min.js"></script>
-        <script src="js/labelgun.min.js"></script>
-        <script src="js/labels.js"></script>
-        <script src="js/leaflet.wms.js"></script>
-        <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
-        <script src="js/leaflet-measure.js"></script>
-        <script src="data/Inventarioforestal_1.js"></script>
-        <script src="data/Ncleosurbanos_2.js"></script>
-        <script src="data/Municipios_3.js"></script>
-        <script src="data/Poblacin2019_4.js"></script>
+        <script src="mapa_mallorca/js/qgis2web_expressions.js"></script>
+        <script src="mapa_mallorca/js/leaflet.js"></script><script src="mapa_mallorca/js/L.Control.Locate.min.js"></script>
+        <script src="mapa_mallorca/js/leaflet.rotatedMarker.js"></script>
+        <script src="mapa_mallorca/js/leaflet.pattern.js"></script>
+        <script src="mapa_mallorca/js/leaflet-hash.js"></script>
+        <script src="mapa_mallorca/js/Autolinker.min.js"></script>
+        <script src="mapa_mallorca/js/rbush.min.js"></script>
+        <script src="mapa_mallorca/js/labelgun.min.js"></script>
+        <script src="mapa_mallorca/js/labels.js"></script>
+        <script src="mapa_mallorca/js/leaflet.wms.js"></script>
+        <script src="mapa_mallorca/js/leaflet-control-geocoder.Geocoder.js"></script>
+        <script src="mapa_mallorca/js/leaflet-measure.js"></script>
+        <script src="mapa_mallorca/data/Inventarioforestal_1.js"></script>
+        <script src="mapa_mallorca/data/Ncleosurbanos_2.js"></script>
+        <script src="mapa_mallorca/data/Municipios_3.js"></script>
+        <script src="mapa_mallorca/data/Poblacin2019_4.js"></script>
         <script>
         var highlightLayer; // Definir la variable y función de resaltar la selección, en este caso en amarillo
         function highlightFeature(e) { //Función de resaltar
@@ -558,7 +558,7 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
         .title += 'Search for a place';//Título del buscador
         var baseMaps = {};
         //Controlador de la activación de las capas
-        L.control.layers(baseMaps,{'Población (2019)<br /><table><tr><td style="text-align: center;"><img src="legend/Poblacin2019_4_21215000.png" /></td><td>212 - 1500</td></tr><tr><td style="text-align: center;"><img src="legend/Poblacin2019_4_150050001.png" /></td><td>1500 - 5000</td></tr><tr><td style="text-align: center;"><img src="legend/Poblacin2019_4_5000100002.png" /></td><td>5000 - 10000</td></tr><tr><td style="text-align: center;"><img src="legend/Poblacin2019_4_10000500003.png" /></td><td>10000 - 50000</td></tr><tr><td style="text-align: center;"><img src="legend/Poblacin2019_4_500001000004.png" /></td><td>50000 - 100000</td></tr><tr><td style="text-align: center;"><img src="legend/Poblacin2019_4_1000004160655.png" /></td><td>100000 - 416065</td></tr></table>': layer_Poblacin2019_4,'<img src="legend/Municipios_3.png" /> Municipios': layer_Municipios_3,'<img src="legend/Ncleosurbanos_2.png" /> Núcleos urbanos': layer_Ncleosurbanos_2,'Inventario forestal<br /><table><tr><td style="text-align: center;"><img src="legend/Inventarioforestal_1_Encina0.png" /></td><td>Encina</td></tr><tr><td style="text-align: center;"><img src="legend/Inventarioforestal_1_Carrizo1.png" /></td><td>Carrizo</td></tr><tr><td style="text-align: center;"><img src="legend/Inventarioforestal_1_Garriga2.png" /></td><td>Garriga</td></tr><tr><td style="text-align: center;"><img src="legend/Inventarioforestal_1_Pinares3.png" /></td><td>Pinares</td></tr><tr><td style="text-align: center;"><img src="legend/Inventarioforestal_1_Acebuche4.png" /></td><td>Acebuche</td></tr><tr><td style="text-align: center;"><img src="legend/Inventarioforestal_1_Zonashúmedas5.png" /></td><td>Zonas húmedas</td></tr><tr><td style="text-align: center;"><img src="legend/Inventarioforestal_1_6.png" /></td><td></td></tr></table>': layer_Inventarioforestal_1,"Ortoimagen": layer_Ortoimagen_0,}).addTo(map);
+        L.control.layers(baseMaps,{'Población (2019)<br /><table><tr><td style="text-align: center;"><img src="mapa_mallorca/legend/Poblacin2019_4_21215000.png" /></td><td>212 - 1500</td></tr><tr><td style="text-align: center;"><img src="mapa_mallorca/legend/Poblacin2019_4_150050001.png" /></td><td>1500 - 5000</td></tr><tr><td style="text-align: center;"><img src="mapa_mallorca/legend/Poblacin2019_4_5000100002.png" /></td><td>5000 - 10000</td></tr><tr><td style="text-align: center;"><img src="mapa_mallorca/legend/Poblacin2019_4_10000500003.png" /></td><td>10000 - 50000</td></tr><tr><td style="text-align: center;"><img src="mapa_mallorca/legend/Poblacin2019_4_500001000004.png" /></td><td>50000 - 100000</td></tr><tr><td style="text-align: center;"><img src="mapa_mallorca/legend/Poblacin2019_4_1000004160655.png" /></td><td>100000 - 416065</td></tr></table>': layer_Poblacin2019_4,'<img src="mapa_mallorca/legend/Municipios_3.png" /> Municipios': layer_Municipios_3,'<img src="mapa_mallorca/legend/Ncleosurbanos_2.png" /> Núcleos urbanos': layer_Ncleosurbanos_2,'Inventario forestal<br /><table><tr><td style="text-align: center;"><img src="mapa_mallorca/legend/Inventarioforestal_1_Encina0.png" /></td><td>Encina</td></tr><tr><td style="text-align: center;"><img src="mapa_mallorca/legend/Inventarioforestal_1_Carrizo1.png" /></td><td>Carrizo</td></tr><tr><td style="text-align: center;"><img src="mapa_mallorca/legend/Inventarioforestal_1_Garriga2.png" /></td><td>Garriga</td></tr><tr><td style="text-align: center;"><img src="mapa_mallorca/legend/Inventarioforestal_1_Pinares3.png" /></td><td>Pinares</td></tr><tr><td style="text-align: center;"><img src="mapa_mallorca/legend/Inventarioforestal_1_Acebuche4.png" /></td><td>Acebuche</td></tr><tr><td style="text-align: center;"><img src="mapa_mallorca/legend/Inventarioforestal_1_Zonashúmedas5.png" /></td><td>Zonas húmedas</td></tr><tr><td style="text-align: center;"><img src="mapa_mallorca/legend/Inventarioforestal_1_6.png" /></td><td></td></tr></table>': layer_Inventarioforestal_1,"Ortoimagen": layer_Ortoimagen_0,}).addTo(map);
         setBounds();
         resetLabels([layer_Municipios_3]);
         map.on("zoomend", function(){ //Zoom
