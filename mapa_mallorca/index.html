@@ -3,7 +3,7 @@ Visor complejo de la isla de Mallorca.
 Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen.  -->
 <!doctype html>
 <html lang="en">
-    <head>
+    <head> <!-- Definir los css que se utilizan y el tamaño del mapa -->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
@@ -21,7 +21,7 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
         </style>
         <title></title>
     </head>
-    <body>
+    <body> <!-- Llamar a cada uno de los js utilizados -->
         <div id="map">
         </div>
         <script src="js/qgis2web_expressions.js"></script>
@@ -41,8 +41,8 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
         <script src="data/Municipios_3.js"></script>
         <script src="data/Poblacin2019_4.js"></script>
         <script>
-        var highlightLayer;
-        function highlightFeature(e) {
+        var highlightLayer; // Definir la variable y función de resaltar la selección, en este caso en amarillo
+        function highlightFeature(e) { //Función de resaltar
             highlightLayer = e.target;
 
             if (e.target.feature.geometry.type === 'LineString') {
@@ -57,31 +57,32 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
             }
             highlightLayer.openPopup();
         }
-        var map = L.map('map', {
+        var map = L.map('map', { //Definir la variable del mapa, con el zoom que se le puede aplicar
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[39.008994588370506,1.5990499008238699],[40.266335248047184,4.128743786170835]]);
+        }).fitBounds([[39.008994588370506,1.5990499008238699],[40.266335248047184,4.128743786170835]]); //Límites del mapa
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
         L.control.locate({locateOptions: {maxZoom: 19}}).addTo(map);
-        var measureControl = new L.Control.Measure({
+        var measureControl = new L.Control.Measure({ //Herramienta para poder medir en el mapa
             position: 'topleft',
             primaryLengthUnit: 'meters',
             secondaryLengthUnit: 'kilometers',
             primaryAreaUnit: 'sqmeters',
             secondaryAreaUnit: 'hectares'
         });
-        measureControl.addTo(map);
+        measureControl.addTo(map); //Añadir herramienta de medición
         document.getElementsByClassName('leaflet-control-measure-toggle')[0]
         .innerHTML = '';
         document.getElementsByClassName('leaflet-control-measure-toggle')[0]
         .className += ' fas fa-ruler';
-        var bounds_group = new L.featureGroup([]);
-        function setBounds() {
+        var bounds_group = new L.featureGroup([]); //Crear variable para delimitar cada uno de los componentes
+        function setBounds() { //Función de delimitar
         }
-        map.createPane('pane_Ortoimagen_0');
+        map.createPane('pane_Ortoimagen_0'); // Inserción del "panel" de fondo, en este caso una ortoimagen a nivel nacional
         map.getPane('pane_Ortoimagen_0').style.zIndex = 400;
-        var layer_Ortoimagen_0 = L.WMS.layer("https://www.ign.es/wms-inspire/pnoa-ma", "OI.OrthoimageCoverage", {
+        var layer_Ortoimagen_0 = L.WMS.layer("https://www.ign.es/wms-inspire/pnoa-ma", "OI.OrthoimageCoverage", { //WMS de la ortoimagen
+            //Propiedades de visualización de la imagen
             pane: 'pane_Ortoimagen_0',
             format: 'image/png',
             uppercase: true,
@@ -93,7 +94,7 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
             identify: false,
             attribution: '',
         });
-        map.addLayer(layer_Ortoimagen_0);
+        map.addLayer(layer_Ortoimagen_0); //Añadir la ortoimagen al mapa
         function pop_Inventarioforestal_1(feature, layer) {
             layer.on({
                 mouseout: function(e) {

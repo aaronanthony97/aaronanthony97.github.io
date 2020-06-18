@@ -39,8 +39,8 @@ Visor sencillo para la localización de la empresa -->
 
         html, body, #map {
             height: 100%;
-            font: 10pt "Helvetica Neue", Trebuchet, Helvetica, sans-serif;
-        }
+            font: 10pt "Helvetica Neue", Trebuchet, Helvetica, sans-serif; 
+        } 
 
         .estilo {
             font-style: bold;
@@ -53,11 +53,13 @@ Visor sencillo para la localización de la empresa -->
 
 <body>
     <div id="sidebar" class="sidebar collapsed">
-        <!-- Botones de navegación (sidebar tabs) -->
+        <!-- Botones de navegación lateral -->
         <div class="sidebar-tabs">
-            <!-- botones de arriba -->
+            <!-- botones superiores -->
             <ul role="tablist">
-                
+            <!-- Para poder cambiar el aspecto de cada uno de los botones de debe hacer desde la clase.
+            Los diferentes códigos de cada clase se encuentran en CSS comentado anteriormente en el inicio
+            del código -->
                 <li><a href="#intro" role="tab"><i class="fa fa-bars"></i></a></li>
                 
                 <li><a href="#home" role="tab"><i class="fa fa-building"></i></a></li>
@@ -65,7 +67,7 @@ Visor sencillo para la localización de la empresa -->
                 <li><a href="#profile" role="tab"><i class="fa fa-users"></i></a></li>
                 
                 <li><a href="#messages" role="tab"><i class="fa fa-map-marker"></i></a></li>
-                
+            <!-- Link directo a la localización de la empresa -->
                 <li><a href="https://www.google.es/maps/place/Avinguda+Gaspar+de+Bennazar,+53,+07004+Palma,+Illes+Balears/@39.5834513,2.6540833,17z/data=!3m1!4b1!4m5!3m4!1s0x129792fe578d0e7d:0xb46c3663cacd36a6!8m2!3d39.5834513!4d2.656272" role="tab"><i class="fa fa-globe"></i></a></li>
             </ul>
             
@@ -77,25 +79,28 @@ Visor sencillo para la localización de la empresa -->
 
         <!-- Paneles desplegables desde botones -->
         <div class="sidebar-content">
-            
+        <!-- Cada uno de los botones creados se ha desarrollado con la información adecuada en cada caso-->
             <div class="sidebar-pane" id="intro">
                 <h1 class="sidebar-header">
-                    POST-AQUA
-                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+                    POST-AQUA <!-- Título de la sección -->
+                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span> <!-- Botón o flecha para volver al menú principal -->
                 </h1>
+                 <!-- Descripción e inserción de logo -->
                 <p class="estilo ">Somos una empresa pionera en nuestro sector dedicada al control y monitorización de riesgos en entornos mediterráneos.</p>
                 <img src="img\logo-blue.png" alt="logo POST-AQUA">
             </div>
 
             <div class="sidebar-pane" id="home">
-                <h1 class="sidebar-header">Nosotros<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                <h1 class="sidebar-header">Nosotros<span class="sidebar-close"> <!-- Título de la sección --><i class="fa fa-caret-left"></i></span></h1> <!-- Botón o flecha para volver al menú principal -->
+                <!-- Descripción e inserción de logo -->
                 <p>Contamos con una corta trayectoria como empresa, pero nuestro equipo cuenta con una dilatada experiencia sobre este sector.</p>
                 <p class="estilo "><em>APRENDE Y CONVIVE CON EL RIESGO</em></p>
                 <img src="img\logo-blue.png" alt="logo">
             </div>
 
             <div class="sidebar-pane" id="profile">
-                <h1 class="sidebar-header">Equipo<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                <h1 class="sidebar-header">Equipo<span class="sidebar-close"> <!-- Título de la sección --><i class="fa fa-caret-left"></i></span></h1> <!-- Botón o flecha para volver al menú principal -->
+                <!-- Descripción del equipo-->
                 <p>A continuación os presentamos a nuestro equipo:</p>
                 <p class="estilo "><b>- Director y fundador:</b> Aaron A. Ortega (Geógrafo)</p>
                 <p class="estilo "><b>- Secretaría:</b> Lorena García (Abogada)</p>
@@ -104,29 +109,30 @@ Visor sencillo para la localización de la empresa -->
             </div>
 
             <div class="sidebar-pane" id="messages">
-                <h1 class="sidebar-header">Localización<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                <h1 class="sidebar-header">Localización<span class="sidebar-close"> <!-- Título de la sección --><i class="fa fa-caret-left"></i></span></h1> <!-- Botón o flecha para volver al menú principal -->
+                <!-- Descripción de la localización -->
                 <p class="estilo">Nos ubicamos en la <b>AV. ARQUITECTE GASPAR BENNÀSAR, N 53, PALMA.</b></p>
                 <p class="estilo">Email: <b>post_aqua@direccion.es</b></p>
                 <p class="estilo">Teléfono/FAX: <b>971 55 22 33 / 971 55 22 32</b></p>
             </div>
 
             <div class="sidebar-pane" id="settings">
-                <h1 class="sidebar-header">Settings<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
-                <p>Incluir aquí el texto necesario...</p>
-                <p class="estilo">Por ejemplo relativo a las propiedades</p>
+                <h1 class="sidebar-header">Settings<span class="sidebar-close"> <!-- Título de la sección --><i class="fa fa-caret-left"></i></span></h1><!-- Botón o flecha para volver al menú principal -->
+                <p>Mapa creado a partir de Leaflet y OpenStreetMap</p>
+                <p class="estilo">Si existiera cualquier problema con la visión de este mapa contactad con nuestro equipo.</p>
             </div>
         </div>
     </div>
 
-    <!-- bloque del mapa -->
+    <!-- Bloque del mapa o visor sencillo -->
     <!-- Inserción del archivo geojson de los municipios -->
-    <script src="contorno_84.geojson"></script>
-    <div id="map" class="sidebar-map"></div>
+    <script src="contorno_84.geojson"></script> <!-- Llamar e insertar la capa con la que se va a trabajar -->
+    <div id="map" class="sidebar-map"></div> <!-- Definir clase -->
     <script>      
-        var map = L.map('map');
-        map.setView([39.58, 2.65], 8);
+        var map = L.map('map'); // Definir la variable mapa
+        map.setView([39.58, 2.65], 8);// Coordenadas para la visión predeterminada a la hora de visualizar el mapa
 
-        
+        // Añadir mapa base, en este caso de Open Street Map
         L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
             maxZoom: 18,
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
@@ -143,10 +149,11 @@ Visor sencillo para la localización de la empresa -->
           contorno.addTo(map)   //
      
         // Localización de la empresa en la ciudad de Palma
-        var marker = L.marker([39.58, 2.65]).addTo(map); 
+        //Inserción del puntero de localización en la coordenadas correspondientes
+        var marker = L.marker([39.58, 2.65]).addTo(map); //Añadir marcador al mapa
 
-        var sidebar = L.control.sidebar('sidebar').addTo(map);
-        L.control.scale().addTo(map);
+        var sidebar = L.control.sidebar('sidebar').addTo(map);//Añadir la barra lateral al mapa
+        L.control.scale().addTo(map); //Añadir barra de escala al mapa
     </script>
 </body>
 </html>
