@@ -224,21 +224,9 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
                     }
                 },
                 mouseover: highlightFeature,//Resaltar al seleccionar
-            //Propiedades de la tabla de la capa de núcleos urbanos
+            //Atributos disponibles a la hora de visualizar el popup de cada entidad (se han eliminado los que no presentan interés)
             });
             var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['AREA'] !== null ? autolinker.link(feature.properties['AREA'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['PERIMETER'] !== null ? autolinker.link(feature.properties['PERIMETER'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['HECTARES'] !== null ? autolinker.link(feature.properties['HECTARES'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['COD_INE'] !== null ? autolinker.link(feature.properties['COD_INE'].toLocaleString()) : '') + '</td>\
-                    </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['NOM'] !== null ? autolinker.link(feature.properties['NOM'].toLocaleString()) : '') + '</td>\
                     </tr>\
@@ -290,14 +278,11 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
                     }
                 },
                 mouseover: highlightFeature,//Resaltar al seleccionar
-            //Propiedades de la tabla de la capa de municipios
+            //Atributos disponibles a la hora de visualizar el popup de cada entidad (se han eliminado los que no presentan interés)
             });
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['MUNICIPI'] !== null ? autolinker.link(feature.properties['MUNICIPI'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ORIG_FID'] !== null ? autolinker.link(feature.properties['ORIG_FID'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -345,75 +330,14 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
                     }
                 },
                 mouseover: highlightFeature,//Resaltar al seleccionar
-            //Propiedades de la tabla de la capa de población
+            //Atributos disponibles a la hora de visualizar el popup de cada entidad (se han eliminado los que no presentan interés)
             });
             var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['OBJECTID_1'] !== null ? autolinker.link(feature.properties['OBJECTID_1'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? autolinker.link(feature.properties['OBJECTID'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ID_MUN'] !== null ? autolinker.link(feature.properties['ID_MUN'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ID_PRO'] !== null ? autolinker.link(feature.properties['ID_PRO'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">ID_COM</th>\
-                        <td>' + (feature.properties['ID_COM'] !== null ? autolinker.link(feature.properties['ID_COM'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['INE_MUN'] !== null ? autolinker.link(feature.properties['INE_MUN'].toLocaleString()) : '') + '</td>\
-                    </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['NOM_MUNICI'] !== null ? autolinker.link(feature.properties['NOM_MUNICI'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['ALTA_DB'] !== null ? autolinker.link(feature.properties['ALTA_DB'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Shape_Leng'] !== null ? autolinker.link(feature.properties['Shape_Leng'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ISLA_ALFABETICO'] !== null ? autolinker.link(feature.properties['ISLA_ALFABETICO'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['DDD'] !== null ? autolinker.link(feature.properties['DDD'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['GGG'] !== null ? autolinker.link(feature.properties['GGG'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['variacion'] !== null ? autolinker.link(feature.properties['variacion'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ORIG_FID'] !== null ? autolinker.link(feature.properties['ORIG_FID'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Municipio'] !== null ? autolinker.link(feature.properties['Municipio'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
                         <td colspan="2">' + (feature.properties['pop_19'] !== null ? autolinker.link(feature.properties['pop_19'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Field3'] !== null ? autolinker.link(feature.properties['Field3'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Field4'] !== null ? autolinker.link(feature.properties['Field4'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Field5'] !== null ? autolinker.link(feature.properties['Field5'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Field6'] !== null ? autolinker.link(feature.properties['Field6'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Field7'] !== null ? autolinker.link(feature.properties['Field7'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Field8'] !== null ? autolinker.link(feature.properties['Field8'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -558,7 +482,7 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
         .title += 'Search for a place';//Título del buscador
         var baseMaps = {};
         //Controlador de la activación de las capas
-        L.control.layers(baseMaps,{'Población (2019)<br /><table><tr><td style="text-align: center;"><img src="mapa_mallorca/legend/Poblacin2019_4_21215000.png" /></td><td>212 - 1500</td></tr><tr><td style="text-align: center;"><img src="mapa_mallorca/legend/Poblacin2019_4_150050001.png" /></td><td>1500 - 5000</td></tr><tr><td style="text-align: center;"><img src="mapa_mallorca/legend/Poblacin2019_4_5000100002.png" /></td><td>5000 - 10000</td></tr><tr><td style="text-align: center;"><img src="mapa_mallorca/legend/Poblacin2019_4_10000500003.png" /></td><td>10000 - 50000</td></tr><tr><td style="text-align: center;"><img src="mapa_mallorca/legend/Poblacin2019_4_500001000004.png" /></td><td>50000 - 100000</td></tr><tr><td style="text-align: center;"><img src="mapa_mallorca/legend/Poblacin2019_4_1000004160655.png" /></td><td>100000 - 416065</td></tr></table>': layer_Poblacin2019_4,'<img src="mapa_mallorca/legend/Municipios_3.png" /> Municipios': layer_Municipios_3,'<img src="mapa_mallorca/legend/Ncleosurbanos_2.png" /> Núcleos urbanos': layer_Ncleosurbanos_2,'Inventario forestal<br /><table><tr><td style="text-align: center;"><img src="mapa_mallorca/legend/Inventarioforestal_1_Encina0.png" /></td><td>Encina</td></tr><tr><td style="text-align: center;"><img src="mapa_mallorca/legend/Inventarioforestal_1_Carrizo1.png" /></td><td>Carrizo</td></tr><tr><td style="text-align: center;"><img src="mapa_mallorca/legend/Inventarioforestal_1_Garriga2.png" /></td><td>Garriga</td></tr><tr><td style="text-align: center;"><img src="mapa_mallorca/legend/Inventarioforestal_1_Pinares3.png" /></td><td>Pinares</td></tr><tr><td style="text-align: center;"><img src="mapa_mallorca/legend/Inventarioforestal_1_Acebuche4.png" /></td><td>Acebuche</td></tr><tr><td style="text-align: center;"><img src="mapa_mallorca/legend/Inventarioforestal_1_Zonashúmedas5.png" /></td><td>Zonas húmedas</td></tr><tr><td style="text-align: center;"><img src="mapa_mallorca/legend/Inventarioforestal_1_6.png" /></td><td></td></tr></table>': layer_Inventarioforestal_1,"Ortoimagen": layer_Ortoimagen_0,}).addTo(map);
+        L.control.layers(baseMaps,{'Población (2019)<br /><table><tr><td style="text-align: center;"><img src="legend/Poblacin2019_4_21215000.png" /></td><td>212 - 1500</td></tr><tr><td style="text-align: center;"><img src="legend/Poblacin2019_4_150050001.png" /></td><td>1500 - 5000</td></tr><tr><td style="text-align: center;"><img src="legend/Poblacin2019_4_5000100002.png" /></td><td>5000 - 10000</td></tr><tr><td style="text-align: center;"><img src="legend/Poblacin2019_4_10000500003.png" /></td><td>10000 - 50000</td></tr><tr><td style="text-align: center;"><img src="legend/Poblacin2019_4_500001000004.png" /></td><td>50000 - 100000</td></tr><tr><td style="text-align: center;"><img src="legend/Poblacin2019_4_1000004160655.png" /></td><td>100000 - 416065</td></tr></table>': layer_Poblacin2019_4,'<img src="legend/Municipios_3.png" /> Municipios': layer_Municipios_3,'<img src="legend/Ncleosurbanos_2.png" /> Núcleos urbanos': layer_Ncleosurbanos_2,'Inventario forestal<br /><table><tr><td style="text-align: center;"><img src="legend/Inventarioforestal_1_Encina0.png" /></td><td>Encina</td></tr><tr><td style="text-align: center;"><img src="legend/Inventarioforestal_1_Carrizo1.png" /></td><td>Carrizo</td></tr><tr><td style="text-align: center;"><img src="legend/Inventarioforestal_1_Garriga2.png" /></td><td>Garriga</td></tr><tr><td style="text-align: center;"><img src="legend/Inventarioforestal_1_Pinares3.png" /></td><td>Pinares</td></tr><tr><td style="text-align: center;"><img src="legend/Inventarioforestal_1_Acebuche4.png" /></td><td>Acebuche</td></tr><tr><td style="text-align: center;"><img src="legend/Inventarioforestal_1_Zonashúmedas5.png" /></td><td>Zonas húmedas</td></tr><tr><td style="text-align: center;"><img src="legend/Inventarioforestal_1_6.png" /></td><td></td></tr></table>': layer_Inventarioforestal_1,"Ortoimagen": layer_Ortoimagen_0,}).addTo(map);
         setBounds();
         resetLabels([layer_Municipios_3]);
         map.on("zoomend", function(){ //Zoom
