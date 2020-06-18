@@ -223,7 +223,8 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
                         });
                     }
                 },
-                mouseover: highlightFeature,
+                mouseover: highlightFeature,//Resaltar al seleccionar
+            //Propiedades de la tabla de la capa de núcleos urbanos
             });
             var popupContent = '<table>\
                     <tr>\
@@ -245,22 +246,22 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Ncleosurbanos_2_0() {
+        function style_Ncleosurbanos_2_0() { //Definición de propiedades de la capa de núcleos urbanos
             return {
                 pane: 'pane_Ncleosurbanos_2',
-                opacity: 1,
-                color: 'rgba(82,82,82,1.0)',
+                opacity: 1, //Opacidad
+                color: 'rgba(82,82,82,1.0)',//Color
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(83,83,83,1.0)',
-                interactive: true,
+                fill: true, //Relleno
+                fillOpacity: 1, //Opacidad del relleno
+                fillColor: 'rgba(83,83,83,1.0)',//Color del relleno
+                interactive: true,//Interacción
             }
         }
-        map.createPane('pane_Ncleosurbanos_2');
+        map.createPane('pane_Ncleosurbanos_2'); //Visualizar la capa
         map.getPane('pane_Ncleosurbanos_2').style.zIndex = 402;
         map.getPane('pane_Ncleosurbanos_2').style['mix-blend-mode'] = 'normal';
         var layer_Ncleosurbanos_2 = new L.geoJson(json_Ncleosurbanos_2, {
@@ -273,8 +274,8 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
             style: style_Ncleosurbanos_2_0,
         });
         bounds_group.addLayer(layer_Ncleosurbanos_2);
-        map.addLayer(layer_Ncleosurbanos_2);
-        function pop_Municipios_3(feature, layer) {
+        map.addLayer(layer_Ncleosurbanos_2);//Añadir la capa al mapa
+        function pop_Municipios_3(feature, layer) {//Función de la capa de municipios
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -288,7 +289,8 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
                         });
                     }
                 },
-                mouseover: highlightFeature,
+                mouseover: highlightFeature,//Resaltar al seleccionar
+            //Propiedades de la tabla de la capa de municipios
             });
             var popupContent = '<table>\
                     <tr>\
@@ -301,7 +303,7 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Municipios_3_0() {
+        function style_Municipios_3_0() {//Propiedades de visualización de la capa de municipios (sigue el mismo patrón que las anteriores)
             return {
                 pane: 'pane_Municipios_3',
                 opacity: 1,
@@ -314,7 +316,7 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
                 interactive: true,
             }
         }
-        map.createPane('pane_Municipios_3');
+        map.createPane('pane_Municipios_3');//Visualización de la capa
         map.getPane('pane_Municipios_3').style.zIndex = 403;
         map.getPane('pane_Municipios_3').style['mix-blend-mode'] = 'normal';
         var layer_Municipios_3 = new L.geoJson(json_Municipios_3, {
@@ -327,8 +329,8 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
             style: style_Municipios_3_0,
         });
         bounds_group.addLayer(layer_Municipios_3);
-        map.addLayer(layer_Municipios_3);
-        function pop_Poblacin2019_4(feature, layer) {
+        map.addLayer(layer_Municipios_3);//Añadir la capa de municipios al mapa
+        function pop_Poblacin2019_4(feature, layer) {//Función de la capa de población
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -342,7 +344,8 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
                         });
                     }
                 },
-                mouseover: highlightFeature,
+                mouseover: highlightFeature,//Resaltar al seleccionar
+            //Propiedades de la tabla de la capa de población
             });
             var popupContent = '<table>\
                     <tr>\
@@ -416,27 +419,31 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Poblacin2019_4_0(feature) {
+        function style_Poblacin2019_4_0(feature) { //Propiedades de visualización de la capa de población
+        //En este caso la variable se representa por simbolos graduados. Hay un total de 6 categorías de población
+        //Se usa la condición IF para cada una de las clases. Así solo selecciona la clase que se encuentra entre los umbrales marcados. 
             if (feature.properties['pop_19'] >= 212.000000 && feature.properties['pop_19'] <= 1500.000000 ) {
+                //Esta clase va de 212 hasta 1500 habitantes
                 return {
                 pane: 'pane_Poblacin2019_4',
-                radius: 2.0,
+                radius: 2.0,//Radio de la clase
                 opacity: 1,
-                color: 'rgba(128,17,25,0.881)',
+                color: 'rgba(128,17,25,0.881)',//Color contorno
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 2.0,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(219,30,42,0.881)',
+                fillColor: 'rgba(219,30,42,0.881)',//Color relleno
                 interactive: true,
             }
             }
             if (feature.properties['pop_19'] >= 1500.000000 && feature.properties['pop_19'] <= 5000.000000 ) {
+                //Esta clase va de 1500 hasta 5000 habitantes
                 return {
                 pane: 'pane_Poblacin2019_4',
-                radius: 5.0,
+                radius: 5.0,//Radio de la clase
                 opacity: 1,
                 color: 'rgba(128,17,25,0.881)',
                 dashArray: '',
@@ -450,9 +457,10 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
             }
             }
             if (feature.properties['pop_19'] >= 5000.000000 && feature.properties['pop_19'] <= 10000.000000 ) {
+                //Esta clase va de 5000 hasta 10000 habitantes
                 return {
                 pane: 'pane_Poblacin2019_4',
-                radius: 8.0,
+                radius: 8.0,//Radio de la clase
                 opacity: 1,
                 color: 'rgba(128,17,25,0.881)',
                 dashArray: '',
@@ -466,9 +474,10 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
             }
             }
             if (feature.properties['pop_19'] >= 10000.000000 && feature.properties['pop_19'] <= 50000.000000 ) {
+                //Esta clase va de 10000 hasta 50000 habitantes
                 return {
                 pane: 'pane_Poblacin2019_4',
-                radius: 12.0,
+                radius: 12.0,//Radio de la clase
                 opacity: 1,
                 color: 'rgba(128,17,25,0.881)',
                 dashArray: '',
@@ -482,9 +491,10 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
             }
             }
             if (feature.properties['pop_19'] >= 50000.000000 && feature.properties['pop_19'] <= 100000.000000 ) {
+                //Esta clase va de 50000 hasta 100000 habitantes
                 return {
                 pane: 'pane_Poblacin2019_4',
-                radius: 16.0,
+                radius: 16.0,//Radio de la clase
                 opacity: 1,
                 color: 'rgba(128,17,25,0.881)',
                 dashArray: '',
@@ -498,9 +508,10 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
             }
             }
             if (feature.properties['pop_19'] >= 100000.000000 && feature.properties['pop_19'] <= 416065.000000 ) {
+                //Esta clase va de 100000 hasta 416065 (máximo de habitantes en Palma) habitantes
                 return {
                 pane: 'pane_Poblacin2019_4',
-                radius: 40.0,
+                radius: 40.0,//Radio de la clase
                 opacity: 1,
                 color: 'rgba(128,17,25,0.881)',
                 dashArray: '',
@@ -514,7 +525,7 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
             }
             }
         }
-        map.createPane('pane_Poblacin2019_4');
+        map.createPane('pane_Poblacin2019_4');//Visualizar la variable
         map.getPane('pane_Poblacin2019_4').style.zIndex = 404;
         map.getPane('pane_Poblacin2019_4').style['mix-blend-mode'] = 'normal';
         var layer_Poblacin2019_4 = new L.geoJson(json_Poblacin2019_4, {
@@ -529,32 +540,34 @@ Capas utilizadas: núcleos urbanos, inventario forestal, municipios y Ortoimagen
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_Poblacin2019_4_0(feature));
+                return L.circleMarker(latlng, style_Poblacin2019_4_0(feature));//Establecer la simbología puntual a la variable
             },
         });
         bounds_group.addLayer(layer_Poblacin2019_4);
-        map.addLayer(layer_Poblacin2019_4);
+        map.addLayer(layer_Poblacin2019_4);//Añadir la capa de población al mapa
         var osmGeocoder = new L.Control.Geocoder({
             collapsed: true,
             position: 'topleft',
             text: 'Search',
             title: 'Testing'
-        }).addTo(map);
+        }).addTo(map);//Añadir al mapa
+        //Búsqueda de entidades o lugares en el mapa
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
-        .className += ' fa fa-search';
+        .className += ' fa fa-search';//Simbología del motor de búsqueda
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
-        .title += 'Search for a place';
+        .title += 'Search for a place';//Título del buscador
         var baseMaps = {};
+        //Controlador de la activación de las capas
         L.control.layers(baseMaps,{'Población (2019)<br /><table><tr><td style="text-align: center;"><img src="legend/Poblacin2019_4_21215000.png" /></td><td>212 - 1500</td></tr><tr><td style="text-align: center;"><img src="legend/Poblacin2019_4_150050001.png" /></td><td>1500 - 5000</td></tr><tr><td style="text-align: center;"><img src="legend/Poblacin2019_4_5000100002.png" /></td><td>5000 - 10000</td></tr><tr><td style="text-align: center;"><img src="legend/Poblacin2019_4_10000500003.png" /></td><td>10000 - 50000</td></tr><tr><td style="text-align: center;"><img src="legend/Poblacin2019_4_500001000004.png" /></td><td>50000 - 100000</td></tr><tr><td style="text-align: center;"><img src="legend/Poblacin2019_4_1000004160655.png" /></td><td>100000 - 416065</td></tr></table>': layer_Poblacin2019_4,'<img src="legend/Municipios_3.png" /> Municipios': layer_Municipios_3,'<img src="legend/Ncleosurbanos_2.png" /> Núcleos urbanos': layer_Ncleosurbanos_2,'Inventario forestal<br /><table><tr><td style="text-align: center;"><img src="legend/Inventarioforestal_1_Encina0.png" /></td><td>Encina</td></tr><tr><td style="text-align: center;"><img src="legend/Inventarioforestal_1_Carrizo1.png" /></td><td>Carrizo</td></tr><tr><td style="text-align: center;"><img src="legend/Inventarioforestal_1_Garriga2.png" /></td><td>Garriga</td></tr><tr><td style="text-align: center;"><img src="legend/Inventarioforestal_1_Pinares3.png" /></td><td>Pinares</td></tr><tr><td style="text-align: center;"><img src="legend/Inventarioforestal_1_Acebuche4.png" /></td><td>Acebuche</td></tr><tr><td style="text-align: center;"><img src="legend/Inventarioforestal_1_Zonashúmedas5.png" /></td><td>Zonas húmedas</td></tr><tr><td style="text-align: center;"><img src="legend/Inventarioforestal_1_6.png" /></td><td></td></tr></table>': layer_Inventarioforestal_1,"Ortoimagen": layer_Ortoimagen_0,}).addTo(map);
         setBounds();
         resetLabels([layer_Municipios_3]);
-        map.on("zoomend", function(){
+        map.on("zoomend", function(){ //Zoom
             resetLabels([layer_Municipios_3]);
         });
-        map.on("layeradd", function(){
+        map.on("layeradd", function(){//Posibilidad de añadir capa
             resetLabels([layer_Municipios_3]);
         });
-        map.on("layerremove", function(){
+        map.on("layerremove", function(){//Posibilidad de quitar capa
             resetLabels([layer_Municipios_3]);
         });
         </script>
